@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Nunito:wght@400;500;600;700;800&family=Nunito+Sans:wght@400;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-ui: 'Nunito', sans-serif;
+  --font-body: 'Nunito Sans', sans-serif;
+
+  --color-navy: #003366;
+  --color-navy-light: #0A4A8A;
+  --color-navy-dark: #001F40;
+  --color-yellow: #FFD700;
+  --color-yellow-soft: #FFF0A0;
+  --color-sky: #87CEEB;
+  --color-sky-light: #EAF6FF;
+  --color-green: #3A8C5C;
+  --color-off-white: #F7F9FC;
+  --color-gray-light: #E8EDF3;
+  --color-gray-mid: #9AA5B4;
+  --color-gray-dark: #4A5568;
+  --color-text-main: #1A2332;
+  --color-text-body: #2D3748;
+  --color-text-muted: #6B7A90;
+
+  --radius-md: 14px;
+  --radius-lg: 24px;
+  --radius-xl: 36px;
+
+  --shadow-md: 0 8px 32px rgba(0,51,102,0.12);
+  --shadow-lg: 0 20px 60px rgba(0,51,102,0.16);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply font-body text-text-body bg-white;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display text-text-main;
+  }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+  body {
+    @apply text-black bg-white;
+  }
+  @page {
+    margin: 15mm;
+  }
+}
